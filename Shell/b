@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "$1"
-if [[ "$1" =~ ^([a-z])*$ ]]
+if [[ "$1" =~ ^([a-z])*$ ]]    # =~表示正则表达式  ^$为边界
 	then 
 		echo "success"
 	else
