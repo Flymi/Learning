@@ -1,0 +1,18 @@
+#/bin/bash    #明确使用bash，如果使用sh则可能默认使用dash
+###
+# 将参数1文件中存储的各个文件名逐个读取，并将文件全部复制到参数2指定的目录下
+# 配合find -name *.(txt) > list 使用
+###
+length=$((`wc -l $1 | cut -d " " -f 1`))  #双括号，统计参数1文件的行数
+# echo $(($length-2))  #debug
+for((i=1; i<=$length; i++));
+do
+index=${i}"p"    #行号变量，用于sed -n (行)p
+# echo $index  #debug
+file=`sed -n $index $1`   #读取参数1文件中第i行所存储的文件路径存入file
+if [ ! -d $2 ]  #如果不存在参数2的目录路径则创建之
+then
+mkdir $2
+fi
+cp $file $2 #将文件file 复制到参数2的目录
+done
