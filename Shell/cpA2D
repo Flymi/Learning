@@ -2,6 +2,8 @@
 ###
 # 将参数1文件中存储的各个文件名逐个读取，并将文件全部复制到参数2指定的目录下
 # 配合find -name *.(txt) > list 使用
+#
+# 类似 find -name *.(txt)|xargs -I {} cp {} ./
 ###
 length=$((`wc -l $1 | cut -d " " -f 1`))  #双括号，统计参数1文件的行数
 # echo $(($length-2))  #debug
