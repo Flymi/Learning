@@ -1,0 +1,4 @@
+#!/bin/bash
+ echo $PATH|xargs -d: -n1 -I {} find {} -name "$1" 2>/dev/null|grep -o in/.*|cut -d/ -f2|sort|uniq|xargs -r -n1 whatis
+
+
