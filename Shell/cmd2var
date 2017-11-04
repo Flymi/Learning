@@ -1,0 +1,12 @@
+####
+#  将命令结果赋值给变量的方法
+#	截取字符串中字母和数字的部分
+####
+
+#!/bin/bash
+temp=`echo "$1"|grep -o "[A-Za-z0-9]*"`
+#temp=$(echo "$1"|grep -o "[A-Za-z0-9]*")
+echo $temp
+
+
+

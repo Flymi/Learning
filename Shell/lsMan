@@ -1,0 +1,11 @@
+####
+#显示手册的简要说明，便于对比的学习命令以及相关man手册lshell升级办！
+#  例如：lsMan “ch*”  将列出所有ch开头得man手册，大多都是change相关
+####
+#!/bin/bash
+temp=`echo "$1"|grep -o "[A-Za-z0-9]*"`
+
+ find /usr/share/man -name "$1"|grep -o man[1-9]/.*|cut -d/ -f2|cut -d. -f1|grep "$temp"|sort|uniq|xargs -n1 -r whatis
+
+
+
