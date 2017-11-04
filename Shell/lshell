@@ -1,3 +1,7 @@
+####
+#显示相关命令的简要说明，便于对比的学习命令
+#  例如：lshell “ch*”  将列出所有ch开头到命令，大多都是change相关，也支持正则匹配
+####
 #!/bin/bash
  echo $PATH|xargs -d: -n1 -I {} find {} -name "$1" 2>/dev/null|grep -o in/.*|cut -d/ -f2|sort|uniq|xargs -r -n1 whatis
 
